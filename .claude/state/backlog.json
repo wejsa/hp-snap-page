@@ -6,8 +6,7 @@
   "summary": {
     "total": 2,
     "byStatus": {
-      "done": 1,
-      "in_progress": 1
+      "done": 2
     }
   },
   "phases": {
@@ -20,7 +19,7 @@
     "phase-2": {
       "name": "Phase 2: Enhancement",
       "description": "REQM 스타일 Hero 리디자인",
-      "status": "active",
+      "status": "completed",
       "tasks": ["TASK-002"]
     }
   },
@@ -50,28 +49,20 @@
       "id": "TASK-002",
       "title": "REQM 스타일 Hero 리디자인 — 영상 배경 + 스크롤 연동 텍스트 분할",
       "description": "reqm.co.kr 스타일 Hero: 영상 배경 + REQM 텍스트 스크롤 분할 애니메이션",
-      "status": "in_progress",
+      "status": "done",
       "priority": "P0",
       "phase": "phase-2",
       "specFile": "docs/requirements/TASK-002-spec.md",
       "dependencies": ["TASK-001"],
       "assignee": "jssim@EXT-JSSIM-PC-20260316",
-      "lockTTL": 7200,
-      "lockedFiles": ["src/components/sections/HeroSection.tsx", "src/components/common/ScrollContainer.module.css"],
       "steps": [
-        {"number": 1, "title": "스크롤 구조 변경 + useScrollProgress 훅", "status": "pending", "estimatedLines": 200},
-        {"number": 2, "title": "영상 Hero + 텍스트 분할 애니메이션 + 반응형", "status": "pending", "estimatedLines": 350}
+        {"number": 1, "title": "스크롤 구조 변경 + useScrollProgress 훅", "status": "done", "estimatedLines": 200},
+        {"number": 2, "title": "영상 Hero + 텍스트 분할 애니메이션 + 반응형", "status": "done", "estimatedLines": 350}
       ],
-      "currentStep": 1,
-      "workflowState": {
-        "currentSkill": "skill-impl",
-        "lastCompletedSkill": "skill-plan",
-        "prNumber": null,
-        "fixLoopCount": 0,
-        "autoChainArgs": null,
-        "updatedAt": "2026-03-16T00:00:00Z"
-      },
-      "createdAt": "2026-03-16T00:00:00Z"
+      "currentStep": 2,
+      "workflowState": null,
+      "createdAt": "2026-03-16T00:00:00Z",
+      "completedAt": "2026-03-16T00:00:00Z"
     }
   }
 }
