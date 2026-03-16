@@ -4,11 +4,13 @@ import { DotNavigation } from './components/Layout/DotNavigation';
 import { HeroSection } from './components/sections/HeroSection';
 import { AboutSection } from './components/sections/AboutSection';
 import { ServicesSection } from './components/sections/ServicesSection';
+import { ContactSection } from './components/sections/ContactSection';
 import { useActiveSection } from './hooks/useActiveSection';
 import { sections } from './data/sections';
 import heroStyles from './components/sections/HeroSection.module.css';
 import aboutStyles from './components/sections/AboutSection.module.css';
 import servicesStyles from './components/sections/ServicesSection.module.css';
+import contactStyles from './components/sections/ContactSection.module.css';
 
 function App() {
   const { containerRef, activeIndex, scrollToSection } = useActiveSection(sections.length);
@@ -31,9 +33,8 @@ function App() {
           <ServicesSection />
         </SectionWrapper>
 
-        <SectionWrapper id="contact">
-          <h2 style={{ fontSize: '2rem', color: '#64748b' }}>Contact</h2>
-          <p style={{ marginTop: '1rem', color: '#94a3b8' }}>Section placeholder</p>
+        <SectionWrapper id="contact" className={contactStyles.contact}>
+          <ContactSection />
         </SectionWrapper>
       </ScrollContainer>
     </>
