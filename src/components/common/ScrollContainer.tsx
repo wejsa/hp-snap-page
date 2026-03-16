@@ -31,3 +31,20 @@ export function SectionWrapper({ id, children, className }: SectionWrapperProps)
     </section>
   );
 }
+
+interface HeroTallSectionProps {
+  id: string;
+  children: ReactNode;
+  sectionRef: React.RefObject<HTMLDivElement | null>;
+  className?: string;
+}
+
+export function HeroTallSection({ id, children, sectionRef, className }: HeroTallSectionProps) {
+  return (
+    <div id={id} ref={sectionRef} className={`${styles.heroTall} ${className ?? ''}`}>
+      <div className={styles.heroSticky}>
+        {children}
+      </div>
+    </div>
+  );
+}

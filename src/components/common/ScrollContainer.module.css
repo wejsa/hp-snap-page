@@ -2,8 +2,7 @@
   height: 100vh;
   height: 100dvh;
   overflow-y: scroll;
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
 }
 
 .section {
@@ -15,5 +14,25 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  overflow: hidden;
+}
+
+/* Hero: tall section with sticky content for scroll-driven animation */
+.heroTall {
+  height: 300vh;
+  scroll-snap-align: none;
+  display: block;
+  overflow: visible;
+}
+
+.heroSticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
 }
