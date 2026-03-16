@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 
 export function useActiveSection(sectionCount: number) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -8,39 +8,56 @@ export function useActiveSection(sectionCount: number) {
     const container = containerRef.current;
     if (!container) return;
 
-    const sectionElements = Array.from(container.children) as HTMLElement[];
-    if (sectionElements.length === 0) return;
+    let rafId: number;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
-            const index = sectionElements.indexOf(entry.target as HTMLElement);
-            if (index !== -1) {
-              setActiveIndex(index);
-            }
+    const handleScroll = () => {
+      rafId = requestAnimationFrame(() => {
+        const scrollTop = container.scrollTop;
+        const viewportHeight = container.clientHeight;
+        const children = Array.from(container.children) as HTMLElement[];
+
+        // Find the section whose midpoint is closest to the viewport center
+        const viewportCenter = scrollTop + viewportHeight / 2;
+        let closestIndex = 0;
+        let closestDistance = Infinity;
+
+        for (let i = 0; i < children.length; i++) {
+          const el = children[i];
+          const sectionCenter = el.offsetTop + el.offsetHeight / 2;
+          const distance = Math.abs(viewportCenter - sectionCenter);
+          if (distance < closestDistance) {
+            closestDistance = distance;
+            closestIndex = i;
           }
         }
-      },
-      {
-        root: container,
-        threshold: 0.5,
-      }
-    );
 
-    for (const el of sectionElements) {
-      observer.observe(el);
-    }
+        setActiveIndex(closestIndex);
+      });
+    };
 
-    return () => observer.disconnect();
+    container.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+
+    return () => {
+      container.removeEventListener('scroll', handleScroll);
+      cancelAnimationFrame(rafId);
+    };
   }, [sectionCount]);
 
-  const scrollToSection = (index: number) => {
+  const scrollToSection = useCallback((index: number) => {
     const container = containerRef.current;
     if (!container) return;
     const target = container.children[index] as HTMLElement | undefined;
-    target?.scrollIntoView({ behavior: 'smooth' });
-  };
+    if (!target) return;
+
+    // For the hero tall section, scroll to its end (so next section is visible)
+    // For other sections, scroll to their start
+    if (index === 0) {
+      container.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, []);
 
   return { containerRef, activeIndex, scrollToSection };
 }
