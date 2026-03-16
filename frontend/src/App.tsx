@@ -213,7 +213,7 @@ function App() {
     <>
       {/* Fixed video background */}
       <div className={`fixed-video-bg ${isWhite ? 'hidden' : ''}`}>
-        <video autoPlay muted loop playsInline preload="auto" src="/hero-bg.mp4" />
+        <video autoPlay muted loop playsInline preload="auto" src={`${import.meta.env.BASE_URL}hero-bg.mp4`} />
         <div className="fixed-video-overlay" />
       </div>
 
@@ -234,7 +234,7 @@ function App() {
         <div className="brand-line" style={lineStyle} />
         {/* Kiosk image: shows on section 7 */}
         <div className={`kiosk-image ${currentSection === 6 ? 'visible' : currentSection > 6 ? 'exit-up' : ''}`} style={{ left: kioskLeft }}>
-          <img src="/kiosk.jpg" alt="DOZN Exchange 무인환전기" />
+          <img src={`${import.meta.env.BASE_URL}kiosk.jpg`} alt="DOZN Exchange 무인환전기" />
         </div>
       </div>
 
