@@ -1,19 +1,19 @@
 {
   "metadata": {
     "lastTaskNumber": 1,
-    "version": 2
+    "version": 4
   },
   "summary": {
     "total": 1,
     "byStatus": {
-      "in_progress": 1
+      "done": 1
     }
   },
   "phases": {
     "phase-1": {
       "name": "Phase 1: MVP",
       "description": "풀페이지 스크롤 홈페이지 MVP",
-      "status": "active",
+      "status": "completed",
       "tasks": ["TASK-001"]
     }
   },
@@ -21,26 +21,23 @@
     "TASK-001": {
       "id": "TASK-001",
       "title": "풀페이지 스크롤(섹션 스냅 스크롤) 홈페이지",
-      "description": "CSS scroll-snap 기반 풀페이지 스크롤 기업 홈페이지 구현. Hero, About, Services, Contact 4개 섹션 + 헤더/도트 네비게이션 + 반응형 디자인",
-      "status": "in_progress",
+      "description": "CSS scroll-snap 기반 풀페이지 스크롤 기업 홈페이지 구현",
+      "status": "done",
       "priority": "P0",
       "phase": "phase-1",
       "specFile": "docs/requirements/TASK-001-spec.md",
       "dependencies": [],
-      "steps": [],
-      "currentStep": 0,
       "assignee": "jssim@EXT-JSSIM-PC-20260316",
-      "lockTTL": 1800,
-      "lockedFiles": [],
-      "workflowState": {
-        "currentSkill": "skill-plan",
-        "lastCompletedSkill": "skill-feature",
-        "prNumber": null,
-        "fixLoopCount": 0,
-        "autoChainArgs": null,
-        "updatedAt": "2026-03-16T00:00:00Z"
-      },
-      "createdAt": "2026-03-16T00:00:00Z"
+      "steps": [
+        {"number": 1, "title": "프로젝트 셋업 + 스크롤 컨테이너", "status": "done", "estimatedLines": 280},
+        {"number": 2, "title": "헤더 + 도트 네비 + Hero", "status": "done", "estimatedLines": 350},
+        {"number": 3, "title": "About + Services + 진입 애니메이션", "status": "done", "estimatedLines": 350},
+        {"number": 4, "title": "Contact + Footer + 반응형 마무리", "status": "done", "estimatedLines": 400}
+      ],
+      "currentStep": 4,
+      "workflowState": null,
+      "createdAt": "2026-03-16T00:00:00Z",
+      "completedAt": "2026-03-16T00:00:00Z"
     }
   }
 }
