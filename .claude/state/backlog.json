@@ -1,12 +1,12 @@
 {
   "metadata": {
     "lastTaskNumber": 1,
-    "version": 1
+    "version": 2
   },
   "summary": {
     "total": 1,
     "byStatus": {
-      "todo": 1
+      "in_progress": 1
     }
   },
   "phases": {
@@ -22,14 +22,24 @@
       "id": "TASK-001",
       "title": "풀페이지 스크롤(섹션 스냅 스크롤) 홈페이지",
       "description": "CSS scroll-snap 기반 풀페이지 스크롤 기업 홈페이지 구현. Hero, About, Services, Contact 4개 섹션 + 헤더/도트 네비게이션 + 반응형 디자인",
-      "status": "todo",
+      "status": "in_progress",
       "priority": "P0",
       "phase": "phase-1",
       "specFile": "docs/requirements/TASK-001-spec.md",
       "dependencies": [],
       "steps": [],
       "currentStep": 0,
-      "workflowState": null,
+      "assignee": "jssim@EXT-JSSIM-PC-20260316",
+      "lockTTL": 1800,
+      "lockedFiles": [],
+      "workflowState": {
+        "currentSkill": "skill-plan",
+        "lastCompletedSkill": "skill-feature",
+        "prNumber": null,
+        "fixLoopCount": 0,
+        "autoChainArgs": null,
+        "updatedAt": "2026-03-16T00:00:00Z"
+      },
       "createdAt": "2026-03-16T00:00:00Z"
     }
   }
