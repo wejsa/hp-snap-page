@@ -1,12 +1,36 @@
 {
   "metadata": {
-    "lastTaskNumber": 0,
+    "lastTaskNumber": 1,
     "version": 1
   },
   "summary": {
-    "total": 0,
-    "byStatus": {}
+    "total": 1,
+    "byStatus": {
+      "todo": 1
+    }
   },
-  "phases": {},
-  "tasks": {}
+  "phases": {
+    "phase-1": {
+      "name": "Phase 1: MVP",
+      "description": "풀페이지 스크롤 홈페이지 MVP",
+      "status": "active",
+      "tasks": ["TASK-001"]
+    }
+  },
+  "tasks": {
+    "TASK-001": {
+      "id": "TASK-001",
+      "title": "풀페이지 스크롤(섹션 스냅 스크롤) 홈페이지",
+      "description": "CSS scroll-snap 기반 풀페이지 스크롤 기업 홈페이지 구현. Hero, About, Services, Contact 4개 섹션 + 헤더/도트 네비게이션 + 반응형 디자인",
+      "status": "todo",
+      "priority": "P0",
+      "phase": "phase-1",
+      "specFile": "docs/requirements/TASK-001-spec.md",
+      "dependencies": [],
+      "steps": [],
+      "currentStep": 0,
+      "workflowState": null,
+      "createdAt": "2026-03-16T00:00:00Z"
+    }
+  }
 }
