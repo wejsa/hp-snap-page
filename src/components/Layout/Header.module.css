@@ -1,0 +1,90 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-header);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-md) var(--spacing-2xl);
+  transition: background-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.headerScrolled {
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  box-shadow: var(--shadow-sm);
+}
+
+.logo {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-text-white);
+  transition: color var(--transition-base);
+}
+
+.logoScrolled {
+  color: var(--color-text);
+}
+
+.nav {
+  display: flex;
+  gap: var(--spacing-xl);
+}
+
+.navLink {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--color-text-white);
+  opacity: 0.8;
+  transition: opacity var(--transition-fast), color var(--transition-base);
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: var(--spacing-xs) var(--spacing-sm);
+}
+
+.navLinkScrolled {
+  color: var(--color-text);
+}
+
+.navLink:hover,
+.navLinkActive {
+  opacity: 1;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: var(--spacing-xs);
+}
+
+.hamburgerLine {
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-text-white);
+  transition: background-color var(--transition-base);
+}
+
+.hamburgerLineScrolled {
+  background-color: var(--color-text);
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: var(--spacing-md) var(--spacing-lg);
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}

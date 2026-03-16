@@ -1,0 +1,59 @@
+.container {
+  position: fixed;
+  right: var(--spacing-xl);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: var(--z-dot-nav);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid var(--color-text-light);
+  background: transparent;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  padding: 0;
+}
+
+.dot:hover {
+  border-color: var(--color-primary);
+  transform: scale(1.2);
+}
+
+.dotActive {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  transform: scale(1.2);
+}
+
+.label {
+  position: absolute;
+  right: 24px;
+  white-space: nowrap;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+  pointer-events: none;
+}
+
+.dotWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.dotWrapper:hover .label {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .container {
+    display: none;
+  }
+}
