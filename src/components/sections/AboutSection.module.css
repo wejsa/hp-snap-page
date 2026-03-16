@@ -1,0 +1,81 @@
+.about {
+  background-color: var(--color-bg);
+  padding: var(--spacing-2xl);
+}
+
+.inner {
+  max-width: 1100px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3xl);
+}
+
+.textBlock {
+  flex: 1;
+}
+
+.label {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.title {
+  font-size: var(--font-size-4xl);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: var(--spacing-lg);
+  color: var(--color-text);
+}
+
+.description {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-light);
+  line-height: 1.8;
+}
+
+.visual {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-lg);
+}
+
+.statCard {
+  background: var(--color-bg-gray);
+  border-radius: 16px;
+  padding: var(--spacing-xl);
+  text-align: center;
+}
+
+.statNumber {
+  font-size: var(--font-size-3xl);
+  font-weight: 800;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.statLabel {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+}
+
+@media (max-width: 768px) {
+  .inner {
+    flex-direction: column;
+    gap: var(--spacing-2xl);
+    text-align: center;
+  }
+
+  .title {
+    font-size: var(--font-size-3xl);
+  }
+
+  .visual {
+    width: 100%;
+  }
+}
