@@ -1,0 +1,34 @@
+{
+  "name": "homepage-sample",
+  "description": "기업 홈페이지 웹 애플리케이션",
+  "domain": "general",
+  "version": "0.1.0",
+  "techStack": {
+    "backend": "nodejs-typescript",
+    "frontend": "react-typescript",
+    "database": "none",
+    "cache": "none",
+    "messageQueue": "none",
+    "infrastructure": "docker-compose"
+  },
+  "agents": {
+    "enabled": ["pm", "backend", "frontend", "code-reviewer", "planner"],
+    "disabled": ["qa", "docs", "db-designer", "devops"]
+  },
+  "conventions": {
+    "taskPrefix": "TASK",
+    "branchStrategy": "git-flow",
+    "commitFormat": "conventional",
+    "prLineLimit": 500,
+    "testCoverage": 80,
+    "workflowProfile": "standard",
+    "language": "ko"
+  },
+  "metadata": {
+    "version": 1,
+    "updatedAt": "2026-03-16T00:00:00Z"
+  },
+  "createdAt": "2026-03-16T00:00:00Z",
+  "kitVersion": "1.33.0",
+  "kitSource": "https://github.com/wejsa/ai-crew-kit.git"
+}
