@@ -11,7 +11,7 @@ function App() {
   const [lineWidth, setLineWidth] = useState(0)
   const [brandOpacity, setBrandOpacity] = useState(0)
   const [lineStyle, setLineStyle] = useState<React.CSSProperties>({})
-  const [kioskLeft, setKioskLeft] = useState('50%')
+
   const [activeVideo, setActiveVideo] = useState(0) // 0 or 1 (which video element is active)
   const videoSrcIndex = useRef([0, 1]) // which VIDEOS index each element plays
   const targetSection = useRef(0)
@@ -130,8 +130,6 @@ function App() {
       bottom: `${lineBottom}px`,
     })
 
-    const midpoint = (zRect.right + eRect.left) / 2 - brandRect.left
-    setKioskLeft(`${midpoint}px`)
   }, [lineWidth])
 
   // Smooth scroll to section
