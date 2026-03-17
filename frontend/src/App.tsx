@@ -116,7 +116,7 @@ function App() {
     const actualWidth = lineEnd - lineStart
 
     const brandHeight = brandRect.height
-    const lineBottom = brandHeight * 0.05
+    const lineBottom = brandHeight * 0.06
 
     setLineStyle({
       width: `${Math.max(0, actualWidth)}px`,
