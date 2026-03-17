@@ -61,12 +61,12 @@ function App() {
       setBrandOpacity(1)
     }
 
-    // Line width: grows from section 2 to 5 (progress 1.5 ~ 4.5)
+    // Line width: grows from section 3 to 6 (progress 2.5 ~ 5.5), section 7~9 keeps section 6 max
     const maxWidth = Math.min(window.innerWidth * 0.4, 520)
-    if (progress < 1.5) {
+    if (progress < 2.5) {
       setLineWidth(0)
-    } else if (progress < 4.5) {
-      const lineProgress = (progress - 1.5) / 3
+    } else if (progress < 5.5) {
+      const lineProgress = (progress - 2.5) / 3
       setLineWidth(lineProgress * maxWidth)
     } else {
       setLineWidth(maxWidth)
@@ -226,12 +226,12 @@ function App() {
     return () => window.removeEventListener('keydown', onKey)
   }, [smoothScrollTo])
 
-  const isWhite = currentSection >= 5
+  const isDark = false
 
   return (
     <>
       {/* Fixed video background - 2 videos crossfading */}
-      <div className={`fixed-video-bg ${isWhite ? 'hidden' : ''}`}>
+      <div className="fixed-video-bg">
         <video
           ref={el => { videoRefs.current[0] = el }}
           className={`bg-video ${activeVideo === 0 ? 'active' : ''}`}
@@ -257,7 +257,7 @@ function App() {
       {/* Fixed brand text - line width driven by scroll position */}
       <div
         ref={brandRef}
-        className={`fixed-brand ${isWhite ? 'dark' : ''}`}
+        className={`fixed-brand ${isDark ? 'dark' : ''}`}
         style={{ opacity: brandOpacity }}
       >
         <span className="brand-left-group">
@@ -269,33 +269,31 @@ function App() {
         </span>
         {/* Line: absolute, from N start to E end */}
         <div className="brand-line" style={lineStyle} />
-        {/* Section 7: exchange */}
-        <div className={`kiosk-image ${currentSection === 6 ? 'visible' : currentSection > 6 ? 'exit-up' : ''}`} style={{ left: kioskLeft }}>
-          <img src={`${import.meta.env.BASE_URL}exchange.png`} alt="환전 서비스" />
-        </div>
-        {/* Section 8: transit-card */}
-        <div className={`kiosk-image ${currentSection === 7 ? 'visible' : currentSection > 7 ? 'exit-up' : ''}`} style={{ left: kioskLeft }}>
-          <img src={`${import.meta.env.BASE_URL}transit-card.png`} alt="교통카드 서비스" />
-        </div>
-        {/* Section 9: voucher */}
-        <div className={`kiosk-image ${currentSection === 8 ? 'visible' : currentSection > 8 ? 'exit-up' : ''}`} style={{ left: kioskLeft }}>
-          <img src={`${import.meta.env.BASE_URL}voucher.png`} alt="바우처 서비스" />
-        </div>
+      </div>
+
+      {/* Section 7: exchange */}
+      <div className={`kiosk-image ${currentSection === 6 ? 'visible' : currentSection > 6 ? 'exit-up' : ''}`}>
+        <img src={`${import.meta.env.BASE_URL}exchange.png`} alt="환전 서비스" />
+      </div>
+      {/* Section 8: transit-card */}
+      <div className={`kiosk-image ${currentSection === 7 ? 'visible' : currentSection > 7 ? 'exit-up' : ''}`}>
+        <img src={`${import.meta.env.BASE_URL}transit-card.png`} alt="교통카드 서비스" />
+      </div>
+      {/* Section 9: voucher */}
+      <div className={`kiosk-image kiosk-large ${currentSection === 8 ? 'visible' : currentSection > 8 ? 'exit-up' : ''}`}>
+        <img src={`${import.meta.env.BASE_URL}voucher.png`} alt="바우처 서비스" />
       </div>
 
       {/* Navbar */}
-      <nav className={`navbar ${isWhite ? 'dark-mode' : ''}`}>
+      <nav className="navbar">
         <div className="logo" onClick={() => smoothScrollTo(0)}>DOZN EXCHANGE</div>
-        <div className="nav-links">
-          <a>서비스</a>
-          <a>렌탈/제휴 문의</a>
-          <a>위치</a>
-          <a>고객센터</a>
-        </div>
+        <button className="hamburger" aria-label="메뉴">
+          <span /><span /><span />
+        </button>
       </nav>
 
       {/* Page Indicator */}
-      <div className={`page-indicator ${isWhite ? 'dark-mode' : ''}`}>
+      <div className={`page-indicator ${isDark ? 'dark-mode' : ''}`}>
         {Array.from({ length: TOTAL_SECTIONS }, (_, i) => (
           <div
             key={i}
@@ -312,16 +310,16 @@ function App() {
         <section className="section" ref={el => { sectionRefs.current[2] = el }} />
         <section className="section" ref={el => { sectionRefs.current[3] = el }} />
         <section className="section" ref={el => { sectionRefs.current[4] = el }} />
-        <section className="section white-bg" ref={el => { sectionRefs.current[5] = el }} />
+        <section className="section" ref={el => { sectionRefs.current[5] = el }} />
 
         {/* Section 7: exchange (fixed-brand 내부에서 표시) */}
-        <section className="section white-bg" ref={el => { sectionRefs.current[6] = el }} />
+        <section className="section" ref={el => { sectionRefs.current[6] = el }} />
 
         {/* Section 8: transit-card (fixed-brand 내부에서 표시) */}
-        <section className="section white-bg" ref={el => { sectionRefs.current[7] = el }} />
+        <section className="section" ref={el => { sectionRefs.current[7] = el }} />
 
         {/* Section 9: voucher (fixed-brand 내부에서 표시) */}
-        <section className="section white-bg" ref={el => { sectionRefs.current[8] = el }} />
+        <section className="section" ref={el => { sectionRefs.current[8] = el }} />
       </div>
     </>
   )
