@@ -77,6 +77,12 @@ function App() {
     setCurrentSection(idx)
   }, [])
 
+  // Scroll to top on page load/refresh
+  useEffect(() => {
+    const container = containerRef.current
+    if (container) container.scrollTop = 0
+  }, [])
+
   // Scroll tracking with rAF for smoothness
   useEffect(() => {
     const container = containerRef.current
