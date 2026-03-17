@@ -72,7 +72,7 @@
 /* Line: absolute positioned by JS */
 .fixed-brand .brand-line {
   position: absolute;
-  height: 10px;
+  height: 11px;
   background: rgba(255, 255, 255, 1);
   z-index: 1;
   will-change: width, left, bottom;
